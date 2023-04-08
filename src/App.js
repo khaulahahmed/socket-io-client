@@ -12,17 +12,18 @@ function App() {
     // Listen for messages from the server
     socket.on("message", (data) => {
       setMessage(data);
+      console.log(message);
     });
 
-    // Emit a message to the server
-    socket.emit("message", "Hello from client");
+    // // Emit a message to the server
+    // socket.emit("message", "Hello from client");
 
     return () => socket.disconnect();
   }, []);
 
   return (
     <div>
-      <p>Message from server: {message}</p>
+      <p>Message sent:  {message}</p>
     </div>
   );
 }
